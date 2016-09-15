@@ -146,11 +146,11 @@ namespace jsonrpc {
 
         Value& operator=(const Value&) = delete;
 
-        Value(Value&& other) noexcept : myType(other.myType), as(other.as) {
+        Value(Value&& other) : myType(other.myType), as(other.as) {
             other.myType = Type::NIL;
         }
 
-        Value& operator=(Value&& other) noexcept {
+        Value& operator=(Value&& other) {
             if (this != &other) {
                 Reset();
 

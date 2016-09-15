@@ -21,7 +21,7 @@ namespace redi
 
         using type = T;
 
-        static constexpr T size = sizeof...(I);
+        static const T size = sizeof...(I);
 
         /// Generate an integer_sequence with an additional element.
         template<T N>
@@ -31,7 +31,7 @@ namespace redi
     };
 
     template<typename T, T... I>
-    constexpr T integer_sequence<T, I...>::size;
+	const T integer_sequence<T, I...>::size;
 
     template<std::size_t... I>
     using index_sequence = integer_sequence<std::size_t, I...>;

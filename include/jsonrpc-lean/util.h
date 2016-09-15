@@ -33,9 +33,9 @@ namespace {
 
     const char DATE_TIME_FORMAT[] = "%Y%m%dT%T";
 
-    constexpr char BASE_64_ALPHABET[64 + 1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	const char BASE_64_ALPHABET[64 + 1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-    constexpr int8_t BASE_64_LUT[256] = {
+    const int8_t BASE_64_LUT[256] = {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63,
@@ -54,19 +54,19 @@ namespace {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     };
 
-    inline constexpr char Base64Char0(uint8_t byte0) noexcept
+	inline const char Base64Char0(uint8_t byte0)
     {
         return BASE_64_ALPHABET[byte0 >> 2];
     }
-        inline constexpr char Base64Char1(uint8_t byte0, uint8_t byte1) noexcept
+		inline const char Base64Char1(uint8_t byte0, uint8_t byte1)
     {
         return BASE_64_ALPHABET[((byte0 << 4) | (byte1 >> 4)) & 0x3f];
     }
-        inline constexpr char Base64Char2(uint8_t byte1, uint8_t byte2) noexcept
+		inline const char Base64Char2(uint8_t byte1, uint8_t byte2)
     {
         return BASE_64_ALPHABET[((byte1 << 2) | (byte2 >> 6)) & 0x3f];
     }
-        inline constexpr char Base64Char3(uint8_t byte2) noexcept
+		inline const char Base64Char3(uint8_t byte2)
     {
         return BASE_64_ALPHABET[byte2 & 0x3f];
     }

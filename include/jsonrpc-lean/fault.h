@@ -54,7 +54,7 @@ namespace jsonrpc {
         int32_t GetCode() const { return myFaultCode; }
         const std::string& GetString() const { return myFaultString; }
 
-        const char* what() const noexcept override
+        const char* what() const override
         {
             return myFaultString.c_str();
         }
